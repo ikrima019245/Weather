@@ -8,10 +8,11 @@ if st.button("get weather"):
     response=requests.get(url)
     if response.status_code == 200:
         data=response.json()
-        latitude  = data[0]["lat"]
-        longitude = data[0]["lon"]
+        latitude=data[0]["lat"]
+        longitude=data[0]["lon"]
         temp_api=f"https://api.openweathermap.org/data/2.5/weather?lat={latitude}&lon={longitude}&appid={apikey}"
+        response=requests.get(temp_api)
         if response.status_code == 200:
             data=response.json()
             temp=data["main"]["temp"]
-            st.success(f"Temperature : {temp}F")
+            st.success(f"Temperature : {temp}K")
