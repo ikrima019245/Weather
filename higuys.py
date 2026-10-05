@@ -15,4 +15,4 @@ if st.button("get weather"):
         if response.status_code == 200:
             data=response.json()
             temp=data["main"]["temp"]
-            st.success(f"Temperature : {temp}K")
+            st.success(f"Temperature : {temp}F")
